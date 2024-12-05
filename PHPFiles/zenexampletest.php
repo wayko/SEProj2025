@@ -1,4 +1,5 @@
 <?php
+
 $name = $_POST['name'];
 $problem = $_POST['problem'];
 $timedate = $_POST['timedate'];
@@ -21,7 +22,8 @@ $con = new mysqli('localhost', 'wayko', 'B4v0e1jj', 'project_2025');
        if($con->query($sql) === TRUE)
     {
         
-        echo "New Ticket Created ";
+        header("Refresh:0; url=../SEProj2025/index.html");
+        echo "New ticket created";
     }
     else
     {
