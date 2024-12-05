@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>
+Classroom Repair Sheet
+</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="files/js/jquery-ui-1.8.22.custom.min.js"></script>
+<link rel="stylesheet" type="text/css" href="files/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="files/css/newDraggable.css">
+</head>
+<body>
+<div class="wrapper">
+<div class="room210">Room 210 Repair Sheet</div>
+<ul class="items" id="group1ul">
+<li><img src="files/images/epson.png" id="210Epson" class="smallimg group1" alt="210Epson"  name="room210machines"/></li>
+<li><img src="files/images/scanner.png" id="210Scanner" class="smallimg group1" alt="210Scanner"  name="room210machines"/></li>
+</ul>
+<ul class="items" id="group2ul">
+<li><img src="files/images/imac.png" id="210IMAC01" class="smallimg group2" alt="210IMAC01"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC02" class="smallimg group2" alt="210IMAC02"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC03" class="smallimg group2" alt="210IMAC03"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC04" class="smallimg group2" alt="210IMAC04"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC05" class="smallimg group2" alt="210IMAC05"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC06" class="smallimg group2" alt="210IMAC06"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC07" class="smallimg group2" alt="210IMAC07"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC08" class="smallimg group2" alt="210IMAC08"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC09" class="smallimg group2" alt="210IMAC09"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC10" class="smallimg group2" alt="210IMAC10"  name="room210machines"/></li>
+</ul>
+<ul class="items" id="group3ul">
+<li><img src="files/images/hpm601.png" id="210PPrinter" class="smallimg group3" alt="210Printer"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC11" class="smallimg group3" alt="210IMAC11"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC12" class="smallimg group3" alt="210IMAC12"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC13" class="smallimg group3" alt="210IMAC13"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC14" class="smallimg group3" alt="210IMAC14"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC15" class="smallimg group3" alt="210IMAC15"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC16" class="smallimg group3" alt="210IMAC16"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC17" class="smallimg group3" alt="210IMAC17"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC18" class="smallimg group3" alt="210IMAC18"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC19" class="smallimg group3" alt="210IMAC19"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC20" class="smallimg group3" alt="210IMAC20"  name="room210machines"/></li>
+</ul>
+<ul class="items" id="group4ul">
+<li><img src="files/images/imac.png" id="210IMAC21" class="smallimg group4" alt="210IMAC21"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC22" class="smallimg group4" alt="210IMAC22"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC23" class="smallimg group4" alt="210IMAC23"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC24" class="smallimg group4" alt="210IMAC24"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC25" class="smallimg group4" alt="210IMAC25"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC26" class="smallimg group4" alt="210IMAC26"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC27" class="smallimg group4" alt="210IMAC27"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC28" class="smallimg group4" alt="210IMAC28"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC29" class="smallimg group4" alt="210IMAC29"  name="room210machines"/></li>
+<li><img src="files/images/imac.png" id="210IMAC30" class="smallimg group4" alt="210IMAC30"  name="room210machines"/></li>
+</ul>
+<div class="problemarea">
+<div class="problem">
+Drag problem machine in here:
+<div class="numbers"></div>
+<button value="Send To Helpdesk" class="button btn btn-primary">Send To Helpdesk</button> 
+<br />Instructor's Name: <input type="text" name="facname" class="facname" id="facname"></input>     
+<br />Instructor's Email: <input type="text" name="email" class="email" id="email"></input>
+<br />
+<input type="hidden" name="room" class="room" id="room" value="210"></input>
+</div>
+</div>
+</div>
+<foot>
+    <script type="text/javascript" src="files/js/newDraggable.js"></script>
+    <script type="text/javascript" src="files/js/newPostDrag.js"></script>
+</foot>
+</body>
+</html>
