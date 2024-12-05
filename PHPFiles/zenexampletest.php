@@ -1,11 +1,11 @@
 <?php
-
 $name = $_POST['name'];
 $problem = $_POST['problem'];
 $timedate = $_POST['timedate'];
 $email = $_POST['email'];
 $facName = $_POST['requestor'];
 $roomNum = $_POST['room'];
+
 $con = new mysqli('localhost', 'wayko', 'B4v0e1jj', 'project_2025');
 
 
@@ -16,19 +16,19 @@ $con = new mysqli('localhost', 'wayko', 'B4v0e1jj', 'project_2025');
  }
  else
  {
-  foreach ($name as $key => $valname) 
-  {
+   foreach ($name as $key => $valname) 
+   {
+   	
      $sql = "Insert into incidentreport(classRoomID, facultyMember, facEmail, deviceName, Problem, TimeDate) VALUES('".$roomNum."','".$facName."','".$email."','". $valname."','".$problem[$key]."','".$timedate[$key]."')";
-       if($con->query($sql) === TRUE)
-    {
+        if($con->query($sql) === TRUE)
+     {
         
-        header("Refresh:0; url=../SEProj2025/index.html");
-        echo "New ticket created";
-    }
-    else
-    {
-        echo "Error: " . $sql . "<br>" . $con->error;
-    }
+         header("Refresh:0; url=SEProj2025/index.html");
+     }
+     else
+     {
+         echo "Error: " . $sql . "<br>" . $con->error;
+     }
  	}
  }
      $con->close();

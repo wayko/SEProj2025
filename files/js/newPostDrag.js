@@ -67,9 +67,16 @@ cdarray.push(currdate[i]);
 arremail = $('#email').val();
 arrreq = $('#facname').val();
 arrroom =  document.getElementById("room").value;
+var dataString = 'name='+ imgarray + '&problem=' + probarray + '&timedate=' + cdarray + '&requestor=' + arrreq + '&email=' + arremail + '&room=' + arrroom;
+alert(dataString);
 // end of requestor array
-
-$.post("phpfiles/zenexampletest.php", {name: imgarray, problem: probarray, timedate: cdarray, requestor: arrreq, email: arremail, room: arrroom });
+   
+                    $.post("phpfiles/zenexampletest.php", {name: imgarray, problem: probarray, timedate: cdarray, requestor: arrreq, email: arremail, room: arrroom }),
+                    $.ajax({
+                    success: function(){
+                        alert("New ticket created");
+                    }
+                });
 
 });
 });
