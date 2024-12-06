@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true)
+    {
+        header("location:/SEProj2025/adminlogin.html");
+        
+    }
+    else
+    {
+         echo "Admin Member: " . htmlspecialchars($_SESSION['adminUN']);
+    }
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,42 +29,48 @@
                 </div>
             </nav>
             <?php
-
+        echo "<table class='table table-striped'>";
+        echo "<tbody>";
+        echo "<tr>";
+        echo "<th>Reported By</th>";
+        echo "<th>Date/Time</th>";
+        echo "<th>Room Number</th>";
+        echo "<th>Device Name</th>";
+        echo "<th>Issue Reported</th>";
+        echo "<th>Assign Tech</th>";
+        echo "</tr>";
    
     $con = new mysqli('localhost', 'root', 'B4v0e1jj', 'project_2025');
     $sql = "Select * from incidentreport ORDER BY incidentID";
     $results = $con->query($sql);
-    $itemLen = 4;
     while($row = $results->fetch_assoc())
     {
-     $itemLen = ($itemLen == 4) ? 1 : $itemLen +1;
-        if($itemLen == 1) echo "<div class='row text-center'>";
+        echo "<tr>";
+        echo "<td>";
+        echo $row['facultyMember'];
+        echo "</td>";
+        echo "<td>";
+        echo $row['TimeDate'];
+        echo "</td>";
+        echo "<td>";
+        echo $row['classRoomID'];
+        echo "</td>";
+        echo "<td>";
+        echo $row['deviceName'];
+        echo "</td>";
+        echo "<td>";
+        echo $row['Problem'];
+        echo "</td>";
+        echo "<td>";
+        echo "<a href='assign_tech.php?id=" . $row['incidentID'] .  "' class='btn btn-primary btn-sm pull-left'>Assign Tech</a>";
+        echo "</td>";
+        echo "</tr>";
         ?>
-        <div class="col-sm-4">
-            <div class="panel">
-                <div class="panel-body">
-                    
-                    <div class="pull-right">
 
-                        <p class="pull-left">Reported By:<b><?php echo $row['facultyMember']; ?></b></p><br/>
-                        
-                    
-                        <span class="pull-left">
-                            <p class="pull-left">Room Number:<?php echo $row['classRoomID']; ?></p><br/>
-                            <p class="pull-left">Device Name:<?php echo $row['deviceName']; ?></p><br/>
-                            <p class="pull-left">Date/Time of incident:<?php echo $row['TimeDate']; ?></p><br/>
-                             <p class="pull-left">Issue:<?php echo $row['Problem']; ?></p><br/><br/><br/>
-                            <a href="add_cart.php?id=<?php echo $row['incidentID']; ?>" class="btn btn-primary btn-sm pull-left">Assign Tech</a>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
         <?php
     }
-    if($itemLen == 1) echo "<div></div><div></div><div></div></div>";
-    if($itemLen == 2) echo "<div></div><div></div></div>";
-    if($itemLen == 3) echo "<div></div></div>";
+    echo "</tbody>";
+    echo "</table>";
     $results->free();
     $con->close();
     ?>
