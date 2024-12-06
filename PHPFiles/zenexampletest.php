@@ -19,7 +19,7 @@ $con = new mysqli('localhost', 'wayko', 'B4v0e1jj', 'project_2025');
    foreach ($name as $key => $valname) 
    {
    	
-     $sql = "Insert into incidentreport(classRoomID, facultyMember, facEmail, deviceName, Problem, TimeDate) VALUES('".$roomNum."','".$facName."','".$email."','". $valname."','".$problem[$key]."','".$timedate[$key]."')";
+     $sql = "Insert into incidentreport(classRoomID, facultyMember, facEmail, deviceName, Problem, TimeDate, AssignedTech) VALUES('".$roomNum."','".$facName."','".$email."','". $valname."','".$problem[$key]."','".$timedate[$key]."', 0)";
         if($con->query($sql) === TRUE)
      {
         
