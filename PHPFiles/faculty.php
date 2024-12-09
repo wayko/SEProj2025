@@ -44,7 +44,7 @@
                 <div class="container-fluid">
                     <div class="navbar-header"> 
                         <a class="navbar-brand" href="faculty.php">HOME</a>
-                        <a class="navbar-brand" href="/SEProj2025/room210.html">Get Trouble Tickets</a>
+                        <a class="navbar-brand" href="/SEProj2025/PHPFiles/classroom.php">Get Trouble Tickets</a>
                         <a class="navbar-brand" href="/SEProj2025/ResourceList.html">Get Resource List</a>
                     </div>
                 </div>
