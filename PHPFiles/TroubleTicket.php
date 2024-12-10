@@ -25,7 +25,7 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="/SEProj2025/adminlogin.html">HOME</a>
+                        <a class="navbar-brand" href="admin.php">HOME</a>
                         <a class="navbar-brand" href="troubleticket.php">Ticket System</a>
                     </div>
                 </div>
