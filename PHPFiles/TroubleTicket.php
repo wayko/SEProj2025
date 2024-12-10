@@ -44,6 +44,7 @@
         echo "<th>Device Name</th>";
         echo "<th>Issue Reported</th>";
         echo "<th>Tech ID Number</th>";
+        echo "<th>Assigned Tech</th>";
         echo "<th>Assign Tech</th>";
         echo "</tr>";
         
@@ -81,7 +82,9 @@
         echo "<option value='100'>100</option>";
         echo "<option value='200'>200</option>";
         echo "<option value='300'>300</option>";
-        echo "<option value='400'>400</option>";
+        echo "</td>";
+        echo "<td>";
+        echo $row['AssignedTech'];
         echo "</td>";
         echo "<td>";
         echo "<button class='btn btn-primary btn-sm pull-left getTech' id='" .$row['incidentID']."'>Assign Tech</button>";
@@ -119,6 +122,7 @@
             data: {idNum: idNum, techIDNum: techID},
             success: function(response){
                 alert(response);
+
             },
             error: function(xhr, ajaxOptions, thrownError) 
             { 
@@ -127,6 +131,9 @@
         });
   
     });
+    $(document).ajaxStop(function(){
+    window.location.reload();
+});
     });
        </script>
     
