@@ -20,10 +20,14 @@ $results = $con->query($sql);
 
 if($results->num_rows > 0)
 {
+    while($row = $results->fetch_assoc())
+    {
         header("refresh:2; url=faculty.php");
         echo "User login successful redirecting to faculty page";
         $_SESSION['loggedin'] = true;
         $_SESSION['facUN'] = $user;
+        $_SESSION['facEmail'] = $row['Email'];
+    }
     }
     else
     {

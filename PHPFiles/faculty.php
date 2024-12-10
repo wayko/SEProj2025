@@ -7,7 +7,8 @@
     }
     else
     {
-        echo "Faculty Member: " . htmlspecialchars($_SESSION['facUN']);
+        echo "Faculty Member: " . htmlspecialchars($_SESSION['facUN']) . "<br/>";
+        echo "Faculty Email: " . htmlspecialchars($_SESSION['facEmail']) . "<br/>";
         
     }
 
@@ -44,8 +45,9 @@
                 <div class="container-fluid">
                     <div class="navbar-header"> 
                         <a class="navbar-brand" href="faculty.php">HOME</a>
-                        <a class="navbar-brand" href="/SEProj2025/PHPFiles/classroom.php">Get Trouble Tickets</a>
-                        <a class="navbar-brand" href="/SEProj2025/ResourceList.html">Get Resource List</a>
+                        <a class="navbar-brand" href="classroom.php">Create Trouble Tickets</a>
+                        <a class="navbar-brand" href="../ResourceList.html">Get Resource List</a>
+                        <a class="navbar-brand" href="../ScheduleRoom.html">Book a ClassRoom</a>
                     </div>
                 </div>
             </nav>

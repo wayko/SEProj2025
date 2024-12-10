@@ -38,6 +38,7 @@
         echo "<tr>";
         echo "<th>Ticket ID</th>";
         echo "<th>Reported By</th>";
+        echo "<th>Email</th>";
         echo "<th>Date/Time</th>";
         echo "<th>Room Number</th>";
         echo "<th>Device Name</th>";
@@ -59,6 +60,9 @@
         echo "</td>";
         echo "<td>";
         echo $row['facultyMember'];
+        echo "</td>";
+         echo "<td>";
+        echo $row['facEmail'];
         echo "</td>";
         echo "<td>";
         echo $row['TimeDate'];
