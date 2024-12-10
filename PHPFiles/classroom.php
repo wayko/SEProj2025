@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true)
+    {
+        header("location:/SEProj2025/faclogin.html");
+        
+    }
+    else
+    {
+        echo "Faculty Member: " . htmlspecialchars($_SESSION['facUN']);
+        
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +72,7 @@ Classroom Repair Sheet
 Drag problem machine in here:
 <div class="numbers"></div>
 <button value="Send To Helpdesk" class="button btn btn-primary">Send To Helpdesk</button> 
-<br />Instructor's Name: <input type="text" name="facname" class="facname" id="facname"></input>     
+<br />Instructor's Name:  <input type="hidden" name="facname" class="facname" id="facname" value=<?php echo htmlspecialchars($_SESSION['facUN']); ?>></input>  <?php echo htmlspecialchars($_SESSION['facUN']); ?>   
 <br />Instructor's Email: <input type="text" name="email" class="email" id="email"></input>
 <br />
 <input type="hidden" name="room" class="room" id="room" value="210"></input>
