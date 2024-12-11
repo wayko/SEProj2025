@@ -31,8 +31,11 @@
                 </div>
             </nav>
             <?php
-
-    
+$con = new mysqli('localhost', 'root', 'B4v0e1jj', 'project_2025');
+    $sql = "Select * from incidentreport ORDER BY incidentID";
+    $results = $con->query($sql);
+        if($_SESSION['TechLevel'] == 2 || $_SESSION['TechLevel'] == 3)
+        {
         echo "<table class='table table-bordered table-striped'>";
         echo "<tbody>";
         echo "<tr>";
@@ -46,13 +49,7 @@
         echo "<th>Tech ID Number</th>";
         echo "<th>Assigned Tech</th>";
         echo "<th>Assign Tech</th>";
-        echo "</tr>";
-        
-
-   
-    $con = new mysqli('localhost', 'root', 'B4v0e1jj', 'project_2025');
-    $sql = "Select * from incidentreport ORDER BY incidentID";
-    $results = $con->query($sql);
+        echo "</tr>"; 
     while($row = $results->fetch_assoc())
     {
         echo "<tr class='tickets'>";
@@ -90,6 +87,52 @@
         echo "<button class='btn btn-primary btn-sm pull-left getTech' id='" .$row['incidentID']."'>Assign Tech</button>";
         echo "</td>";
         echo "</tr>";
+    }
+    }
+    else
+    {
+        echo "<table class='table table-bordered table-striped'>";
+        echo "<tbody>";
+        echo "<tr>";
+        echo "<th>Ticket ID</th>";
+        echo "<th>Reported By</th>";
+        echo "<th>Email</th>";
+        echo "<th>Date/Time</th>";
+        echo "<th>Room Number</th>";
+        echo "<th>Device Name</th>";
+        echo "<th>Issue Reported</th>";
+        echo "<th>Assigned Tech</th>";
+        echo "</tr>";
+    
+    while($row = $results->fetch_assoc())
+    {
+        echo "<tr class='tickets'>";
+        echo "<td class='ticketID'>";
+        echo $row['incidentID'];
+        echo "</td>";
+        echo "<td>";
+        echo $row['facultyMember'];
+        echo "</td>";
+         echo "<td>";
+        echo $row['facEmail'];
+        echo "</td>";
+        echo "<td>";
+        echo $row['TimeDate'];
+        echo "</td>";
+        echo "<td>";
+        echo $row['classRoomID'];
+        echo "</td>";
+        echo "<td>";
+        echo $row['deviceName'];
+        echo "</td>";
+        echo "<td>";
+        echo $row['Problem'];
+        echo "</td>";
+        echo "<td>";
+        echo $row['AssignedTech'];
+        echo "</td>";
+        echo "</tr>";
+    }
         ?>
 
         <?php

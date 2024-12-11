@@ -20,10 +20,14 @@ $results = $con->query($sql);
 
 if($results->num_rows > 0)
 {
+    while($row = $results->fetch_assoc())
+    {
         header("refresh:2; url=admin.php");
         echo "User login successful redirecting to admin page";
         $_SESSION['loggedin'] = true;
         $_SESSION['adminUN'] = $user;
+        $_SESSION['TechLevel'] =  $row['TechLevel'];
+    }
     }
     else
     {
