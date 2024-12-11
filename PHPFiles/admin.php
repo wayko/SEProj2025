@@ -7,9 +7,7 @@
     }
     else
     {
-        echo "Admin Member: " . htmlspecialchars($_SESSION['adminUN']) . "<br />";
-        echo "Tech Level: " . htmlspecialchars($_SESSION['TechLevel']);
-        
+        echo "Admin Member: " . htmlspecialchars($_SESSION['adminUN']);
     }
 
 ?>
