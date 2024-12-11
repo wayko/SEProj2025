@@ -49,19 +49,55 @@
                 </div>
             </nav>
             <?php
-                if(isset($_SESSION['message']))
-                {
-                    ?>
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-6">
-                            <div class="alert alert-info text-center">
-                                <?php echo $_SESSION['message']; ?>
-                            </div>
-                        </div>
-                    </div>
-                <?php
-                    unset($_SESSION['message']);
-                }
+               $con = new mysqli('localhost', 'root', 'B4v0e1jj', 'project_2025');
+                $sql2 = "Select * from incidentreport WHERE AssignedTech = ".$_SESSION['Admin']. " ORDER BY incidentID";
+                    $results2 = $con->query($sql2);
+                    echo "<table class='table table-bordered table-striped'>";
+                    echo "<tbody>";
+                    echo "<tr>";
+                    echo "<th>Ticket ID</th>";
+                    echo "<th>Reported By</th>";
+                    echo "<th>Email</th>";
+                    echo "<th>Date/Time</th>";
+                    echo "<th>Room Number</th>";
+                    echo "<th>Device Name</th>";
+                    echo "<th>Issue Reported</th>";
+                    echo "<th>Assigned Tech</th>";
+                    echo "</tr>";
+                    while($row2 = $results2->fetch_assoc())
+                    {
+                        echo "<tr class='tickets'>";
+                        echo "<td class='ticketID'>";
+                        echo $row2['incidentID'];
+                        echo "</td>";
+                        echo "<td>";
+                        echo $row2['facultyMember'];
+                        echo "</td>";
+                        echo "<td>";
+                        echo $row2['facEmail'];
+                        echo "</td>";
+                        echo "<td>";
+                        echo $row2['TimeDate'];
+                        echo "</td>";
+                        echo "<td>";
+                        echo $row2['classRoomID'];
+                        echo "</td>";
+                        echo "<td>";
+                        echo $row2['deviceName'];
+                        echo "</td>";
+                        echo "<td>";
+                        echo $row2['Problem'];
+                        echo "</td>";
+                        echo "<td>";
+                        echo htmlspecialchars($_SESSION['adminUN']);
+                        echo "</td>";
+                        echo "</tr>";
+                    }
+                
+                echo "</tbody>";
+                echo "</table>";
+                $results->free();
+                $con->close();
 
    
     ?>
