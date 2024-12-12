@@ -9,6 +9,7 @@
     else
     {
         echo "Admin Member: " . htmlspecialchars($_SESSION['adminUN']);
+        echo "<br /><a href='/SEProj2025'>Log Out</>";
     }
 
 ?>

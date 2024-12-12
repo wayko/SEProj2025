@@ -22,7 +22,6 @@ if($results->num_rows > 0)
         $_SESSION['Admin'] = $row['AdminID'];
         header("refresh:2; url=admin.php");
         echo "User login successful redirecting to admin page <br />";
-        echo $_SESSION['Admin'];
     }
     }
     else
