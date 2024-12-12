@@ -6,16 +6,7 @@ $email = $_POST['email'];
 $facName = $_POST['requestor'];
 $roomNum = $_POST['room'];
 
-$con = new mysqli('localhost', 'wayko', 'B4v0e1jj', 'project_2025');
-
-
- if($con->connect_error)
- {
- 	echo $con->connect_error;
- 	die("Connection Failed " . $con->connect_error);
- }
- else
- {
+require 'dbconfig.php';
    foreach ($name as $key => $valname) 
    {
    	
@@ -30,6 +21,5 @@ $con = new mysqli('localhost', 'wayko', 'B4v0e1jj', 'project_2025');
          echo "Error: " . $sql . "<br>" . $con->error;
      }
  	}
- }
      $con->close();
 ?>

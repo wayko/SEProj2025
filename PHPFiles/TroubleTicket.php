@@ -30,7 +30,7 @@
                 </div>
             </nav>
             <?php
-                $con = new mysqli('localhost', 'root', 'B4v0e1jj', 'project_2025');
+                require 'dbconfig.php';
                 if($_SESSION['TechLevel'] == 2 || $_SESSION['TechLevel'] == 3)
                 {
                     $sql = "Select * from incidentreport ORDER BY incidentID";

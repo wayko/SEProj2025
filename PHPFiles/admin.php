@@ -1,5 +1,6 @@
 <?php
     session_start();
+
     if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true)
     {
         header("location:/SEProj2025/adminlogin.html");
@@ -49,7 +50,7 @@
                 </div>
             </nav>
             <?php
-               $con = new mysqli('localhost', 'root', 'B4v0e1jj', 'project_2025');
+                require 'dbconfig.php';
                 $sql2 = "Select * from incidentreport WHERE AssignedTech = ".$_SESSION['Admin']. " ORDER BY incidentID";
                     $results2 = $con->query($sql2);
                     echo "<table class='table table-bordered table-striped'>";
@@ -97,9 +98,7 @@
                 echo "</tbody>";
                 echo "</table>";
                 $results->free();
-                $con->close();
-
-   
+                $con->close(); 
     ?>
     </div>
     </div>

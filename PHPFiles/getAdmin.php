@@ -7,13 +7,7 @@
     $user = trim($_POST['adminUN']);
     $password = trim($_POST['adminPW']);
     #$hashPassword = hash('sha256', $password);
-    if($con->connect_error)
-{
-	echo $con->connect_error;
-	die("Connection Failed " . $con->connect_error);
-}
-else
-{
+   
 $sql ="Select * from adminmember where FirstName ='" .$user. "' and AdminID = '" . $password . "'";
 
 $results = $con->query($sql);
@@ -35,7 +29,6 @@ if($results->num_rows > 0)
     {
         header("refresh:2; url=/SEProj2025/adminlogin.html");
         echo "User not found or password incorrect";
-    }
     }
     $results->free();
     $con->close();
