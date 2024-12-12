@@ -1,7 +1,7 @@
 <?php
     session_start();
     //Database Connection//
-    $con = new mysqli('localhost', 'wayko', 'B4v0e1jj', 'project_2025');
+    require 'dbconfig.php';
     
     //Passed Variables
     $user = trim($_POST['adminUN']);
