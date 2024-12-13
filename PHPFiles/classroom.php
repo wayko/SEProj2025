@@ -24,11 +24,27 @@ Classroom Repair Sheet
 <link rel="stylesheet" type="text/css" href="../files/css/newDraggable.css">
 </head>
 <body>
-<div>
-Instructor's Name:  <input type="hidden" name="facname" class="facname" id="facname" value=<?php echo htmlspecialchars($_SESSION['facUN']); ?>></input>  <?php echo htmlspecialchars($_SESSION['facUN']); ?>   
-<br />Instructor's Email: <input type="hidden" name="email" class="email" id="email" value=<?php echo htmlspecialchars($_SESSION['facEmail']); ?>><?php echo htmlspecialchars($_SESSION['facEmail']); ?></input>
-<br />
-<input type="hidden" name="room" class="room" id="room" value="210"></input>
+<div style="padding-left: 10px;">
+    Name:  <input type="hidden" name="facname" class="facname" id="facname" value=<?php echo htmlspecialchars($_SESSION['facUN']); ?>></input>  
+    <?php echo htmlspecialchars($_SESSION['facUN']); ?>   
+    <br />Email: <input type="hidden" name="email" class="email" id="email" value=<?php echo htmlspecialchars($_SESSION['facEmail']); ?>>
+    <?php echo htmlspecialchars($_SESSION['facEmail']); ?></input>
+    <?php
+        echo "<br /><button class='logout btn btn-primary btn-sm pull-left'>Log Out</button>";
+        echo "<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.min.js'></script>";
+        echo "<script type='text/javascript' src='../files/js/jquery-ui-1.8.22.custom.min.js'></script>";
+        echo "<script>";
+        echo "$(document).ready(function()";
+        echo "{";
+        echo "$('.logout').on('click',function()";
+        echo "{";
+        echo "$(location).prop('href', 'sessionDestroy.php')";
+        echo "});";
+        echo "});";
+        echo " </script>";
+    ?>
+    <br />
+    <input type="hidden" name="room" class="room" id="room" value="210"></input>
 </div>
 <div class="wrapper">
      <nav class="navbar navbar-default">
