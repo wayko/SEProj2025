@@ -119,6 +119,7 @@
                     echo "<th>Device Name</th>";
                     echo "<th>Issue Reported</th>";
                     echo "<th>Assigned Tech</th>";
+                    echo "<th>Update Ticket</th>";
                     echo "</tr>";
                     while($row2 = $results2->fetch_assoc())
                     {
@@ -146,6 +147,9 @@
                         echo "</td>";
                         echo "<td>";
                         echo htmlspecialchars($_SESSION['adminUN']);
+                        echo "</td>";
+                        echo "<td>";
+                         echo "<button class='btn btn-primary btn-sm pull-left updateTicket' id='" .$row['incidentID']."'>Update Ticket</button>";
                         echo "</td>";
                         echo "</tr>";
                     }
@@ -187,11 +191,15 @@
                             alert(xhr.responseText); 
                         }
                     });
-                });
                 $(document).ajaxStop(function()
                 {
                     window.location.reload();
                 });
+            });
+                $('.updateTicket').on('click', function()
+                    {
+                        alert('Update Button Pressed');
+                    });
             });
         </script>
     </body>
