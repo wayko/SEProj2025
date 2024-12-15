@@ -24,7 +24,6 @@
         echo " </script>";
         echo "</div>";
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -33,24 +32,6 @@
         <meta charset="utf-8">
         <title>Admin Portal</title>
         <link rel="stylesheet" type="text/css" href="../files/css/bootstrap.min.css">
-        <style>
-            .product_image
-            {
-                height:200px;
-            }
-            .product_name
-            {
-                height:80px;
-                padding-left:20px;
-                padding-right:20px;
-            }
-            .product_footer
-            {
-                padding-left:20px;
-                padding-right:20px;
-                padding-bottom:25px;
-            }
-        </style>
     </head>
     <body>
         <div class="container">
@@ -107,15 +88,13 @@
                         echo htmlspecialchars($_SESSION['adminUN']);
                         echo "</td>";
                         echo "</tr>";
-                    }
-                
+                    }              
                 echo "</tbody>";
                 echo "</table>";
-                $results->free();
+                $results2->free();
                 $con->close(); 
     ?>
     </div>
-    </div>
-   
+    </div>   
     </body>
     </html>

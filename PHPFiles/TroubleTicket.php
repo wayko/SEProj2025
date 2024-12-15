@@ -2,8 +2,7 @@
     session_start();
     if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true)
     {
-        header("location:/SEProj2025/adminlogin.html");
-        
+        header("location:/SEProj2025/adminlogin.html");    
     }
     else
     {
@@ -100,9 +99,9 @@
                     echo "<button class='btn btn-primary btn-sm pull-left getTech' id='" .$row['incidentID']."'>Assign Tech</button>";
                     echo "</td>";
                     echo "</tr>";
-            ?>
-            <?php
                     }
+                    $results->free();
+                    $con->close();
                 }
                 else
                 {
@@ -149,20 +148,19 @@
                         echo htmlspecialchars($_SESSION['adminUN']);
                         echo "</td>";
                         echo "<td>";
-                         echo "<button class='btn btn-primary btn-sm pull-left updateTicket' id='" .$row['incidentID']."'>Update Ticket</button>";
+                        echo "<button class='btn btn-primary btn-sm pull-left updateTicket' id='" .$row2['incidentID']."'>Update Ticket</button>";
                         echo "</td>";
                         echo "</tr>";
                     }
+                    $results2->free();
+                    $con->close();
                 }
                 echo "</tbody>";
                 echo "</table>";
-                $results->free();
-                $con->close();
+                
             ?>
         </div>
         <script>
-            $(document).ready(function()
-            {
                 var techID = 0;
                 $('.techid').change(function()
                 {
@@ -180,7 +178,7 @@
                     $.ajax(
                     {
                         type:"POST",
-                        url: "assign_tech.php",
+                        url: "assignTech.php",
                         data: {idNum: idNum, techIDNum: techID},
                         success: function(response)
                         {
@@ -191,16 +189,40 @@
                             alert(xhr.responseText); 
                         }
                     });
-                $(document).ajaxStop(function()
-                {
-                    window.location.reload();
-                });
-            });
-                $('.updateTicket').on('click', function()
+                    $(document).ajaxStop(function()
                     {
-                        alert('Update Button Pressed');
+                        window.location.reload();
                     });
-            });
+                });            
+        </script>
+        <script>
+            $('.updateTicket').on('click', function()
+              {
+                 if(techID === 0)
+                {
+                    techID = 100;
+                }
+                index = $(this).closest('tr').index() - 1;
+                idNum =  $(".ticketID:eq(" + index + ")" ).text();
+                $.ajax(
+                {
+                    type:"POST",
+                    url: "updateTicket.php",
+                    data: {idNum: idNum, techIDNum: <?php echo($_SESSION['Admin']);?>},
+                    success: function(response)
+                    {
+                        alert(response);
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) 
+                    { 
+                        alert(xhr.responseText); 
+                    }
+                    });
+                    $(document).ajaxStop(function()
+                    {
+                        window.location.reload();
+                    });
+                });
         </script>
     </body>
 </html>
