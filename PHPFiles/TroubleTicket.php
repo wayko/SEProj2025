@@ -141,7 +141,7 @@
                         echo "<td>";
                         echo $row2['deviceName'];
                         echo "</td>";
-                        echo "<td>";
+                        echo "<td class='TDProblem'>";
                         echo $row2['Problem'];
                         echo "</td>";
                         echo "<td>";
@@ -196,19 +196,48 @@
                 });            
         </script>
         <script>
-            $('.updateTicket').on('click', function()
-              {
-                 if(techID === 0)
+            function resizeInput() 
+            {
+                $(this).attr('size', $(this).val().length);
+            }
+            $('input[type="text"]')
+            // event handler
+            .keyup(resizeInput)
+            // resize on page load
+            .each(resizeInput);         
+            $('td')
+            // event handler
+            .keyup(resizeInput)
+            // resize on page load
+            .each(resizeInput);
+
+            $("td.TDProblem").dblclick(function () 
+            {
+                var originalContent = $(this).text(); 
+                $(this).addClass("cellEditing");
+                $(this).html("<input type='text' value='" + originalContent + "' />");
+                $(this).children().first().focus();
+                $(this).children().first().keypress(function (e) 
                 {
-                    techID = 100;
+                if (e.which == 13) 
+                {
+                var newContent = $(this).val();
+                $(this).parent().text(newContent);
+                $(this).parent().removeClass("cellEditing");
                 }
+                });
+
+            });
+            $('.updateTicket').on('click', function()
+            {
                 index = $(this).closest('tr').index() - 1;
                 idNum =  $(".ticketID:eq(" + index + ")" ).text();
+                problemUpdate = $(this).parents('tr').find('td').eq(6).text();
                 $.ajax(
                 {
                     type:"POST",
                     url: "updateTicket.php",
-                    data: {idNum: idNum, techIDNum: <?php echo($_SESSION['Admin']);?>},
+                    data: {idNum: idNum, techIDNum: <?php echo($_SESSION['Admin']);?>, problem: problemUpdate},
                     success: function(response)
                     {
                         alert(response);
@@ -217,13 +246,10 @@
                     { 
                         alert(xhr.responseText); 
                     }
-                    });
-                    $(document).ajaxStop(function()
-                    {
-                        window.location.reload();
-                    });
                 });
-        </script>
+            });
+        </script>  
+
     </body>
 </html>
     
