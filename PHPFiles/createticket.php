@@ -7,6 +7,12 @@ $facName = $_POST['requestor'];
 $roomNum = $_POST['room'];
 
 require 'dbconfig.php';
+if ($name == null || $email == null || $name == '' || $email == '')
+{
+    echo "Name or email was not supplied";
+}
+else
+{
    foreach ($name as $key => $valname) 
    {
    	
@@ -14,12 +20,13 @@ require 'dbconfig.php';
         if($con->query($sql) === TRUE)
      {
         
-         header("Refresh:0; url=SEProj2025/index.html");
+         echo "Ticket Created";
      }
      else
      {
          echo "Error: " . $sql . "<br>" . $con->error;
      }
  	}
+ }
      $con->close();
 ?>

@@ -69,12 +69,9 @@ arrreq = $('#facname').val();
 arrroom =  document.getElementById("room").value;
 // end of requestor array
    
-                    $.post("../phpfiles/createticket.php", {name: imgarray, problem: probarray, timedate: cdarray, requestor: arrreq, email: arremail, room: arrroom }),
-                    $.ajax({
-                    success: function(){
-                        alert("New ticket created");
-                    }
-                });
-
+$.post("../phpfiles/createticket.php", {name: imgarray, problem: probarray, timedate: cdarray, requestor: arrreq, email: arremail, room: arrroom })
+.done(function(data){
+    alert(data);
+});
 });
 });
