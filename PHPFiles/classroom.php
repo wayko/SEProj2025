@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true)
+    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true || !isset($_SESSION['facUN']))
     {
         header("location:/SEProj2025/faclogin.html");
         
