@@ -32,6 +32,7 @@
     <meta charset="utf-8">
     <title>Admin Portal</title>
     <link rel="stylesheet" type="text/css" href="../files/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="../files/images/favicon.ico">
     </head>
     <body>
         <div class="container">

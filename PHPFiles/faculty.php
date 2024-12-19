@@ -34,6 +34,7 @@
         <meta charset="utf-8">
         <title>Faculty Portal</title>
         <link rel="stylesheet" type="text/css" href="../files/css/bootstrap.min.css">
+        <link rel="icon" type="image/x-icon" href="../files/images/favicon.ico">
         <style>
             .product_image
             {
